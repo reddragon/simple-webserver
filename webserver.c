@@ -26,7 +26,12 @@ int main()
 	
 	addr_size = sizeof(their_addr);
 
-	printf("Now waiting for clients!");
-	new_fd = accept(sockfd, (struct sockaddr *)&their_addr, &addr_size);
-	printf("Got one! Now, I am going.");
+	printf("simple-webserver, all booted up.\n");
+
+	while( (new_fd = \
+		accept(sockfd, (struct sockaddr *)&their_addr, &addr_size))
+		!= -1)
+	{
+		printf("Got one! And I am staying here\n");
+	}
 }
