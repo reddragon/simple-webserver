@@ -32,6 +32,10 @@ int main()
 		accept(sockfd, (struct sockaddr *)&their_addr, &addr_size))
 		!= -1)
 	{
-		printf("Got one! And I am staying here\n");
+		printf("Got one! And I am going to say Hello\n");
+		char * response = "<b>How are you doing!</b>";
+		send(new_fd, response, strlen(response), 0);
+		printf("I just said Hi:\n%s\n", response);
+		close(new_fd);
 	}
 }
